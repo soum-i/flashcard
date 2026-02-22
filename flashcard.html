@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>FlashCards</title>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Flash Cards</h2>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+      <div class="progress-text" id="progressText"></div>
+    </div>
+
+    <div class="card" id="card">Questions</div>
+
+    <div class="controls">
+      <button onclick="prevCard()">Previous</button>
+      <button onclick="toggleAnswer()">Show Answer</button>
+      <button onclick="nextCard()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    const flashcards = [
+      {
+        question: "What is the difference between var, let, and const?",
+        answer: "var is function-scoped and can be re-declared. let and const are block-scoped. let allows reassignment, const does not."
+      },
+      {
+        question: "What is a closure in JavaScript?",
+        answer: "A closure is a function that remembers variables from its outer scope even after the outer function has finished executing."
+      },
+      {
+        question: "What is event bubbling?",
+        answer: "Event bubbling is when an event propagates from the target element up to its ancestors in the DOM."
+      },
+      {
+        question: "What is the difference between == and ===?",
+        answer: "== compares values with type coercion. === compares both value and type."
+      },
+      {
+        question: "What is hoisting?",
+        answer: "Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope before execution."
+      }
+    ];
+
+    let currentIndex = 0;
+    let showingAnswer = false;
+
+    const card = document.getElementById('card');
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
+
+    function updateCard() {
+      const current = flashcards[currentIndex];
+      card.textContent = showingAnswer ? current.answer : current.question;
+      updateProgress();
+    }
+
+    function toggleAnswer() {
+      showingAnswer = !showingAnswer;
+      updateCard();
+    }
+
+    function nextCard() {
+      if (currentIndex < flashcards.length - 1) {
+        currentIndex++;
+        showingAnswer = false;
+        updateCard();
+      }
+    }
+
+    function prevCard() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        showingAnswer = false;
+        updateCard();
+      }
+    }
+
+    function updateProgress() {
+      const progress = ((currentIndex + 1) / flashcards.length) * 100;
+      progressBar.style.width = progress + '%';
+      progressText.textContent = `${currentIndex + 1} of ${flashcards.length}`;
+    }
+
+    updateCard();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.container {
+  width: 400px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.progress-container {
+  background: #ddd;
+  border-radius: 20px;
+  height: 20px;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.progress-bar {
+  background: #999;
+  height: 100%;
+  width: 0%;
+  border-radius: 20px;
+  transition: width 0.3s;
+}
+
+.progress-text {
+  position: absolute;
+  right: 10px;
+  top: -22px;
+  font-size: 14px;
+}
+
+.card {
+  background: #eaeaea;
+  border-radius: 10px;
+  padding: 30px;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+button {
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 20px;
+}
