@@ -12,6 +12,12 @@ HTML, CSS, JS.
 
 ---
 
+## 🔗 Live Project
+
+https://699a7a2236da8bc82d9b8c1e--rococo-vacherin-4e0188.netlify.app/
+
+---
+
 ## 📁 Project Structure
 ```
 flashcards/
